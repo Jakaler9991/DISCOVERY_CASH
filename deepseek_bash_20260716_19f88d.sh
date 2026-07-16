@@ -1,0 +1,1 @@
+wrangler d1 execute cyrax_ssd_db --file=./schema.sql
