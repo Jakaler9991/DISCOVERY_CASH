@@ -1,0 +1,40 @@
+<!-- This is a conceptual example, not production code -->
+<div class="banking-dashboard">
+  <!-- Header: Account Summary and Sync Status -->
+  <div class="dashboard-header">
+    <h1>Welcome, User</h1>
+    <div class="account-summary">
+      <span>Checking: $2,450.00</span>
+      <span>Savings: $15,200.50</span>
+      <span>Credit: $0.00</span>
+    </div>
+    <!-- NEW: Sync Button -->
+    <button (click)="syncAccounts()" [disabled]="isSyncing">
+      {{ isSyncing ? 'Syncing...' : 'Sync Now' }}
+    </button>
+    <!-- NEW: Last Sync Status -->
+    <p *ngIf="lastSyncTime">Last sync: {{ lastSyncTime | date:'medium' }}</p>
+  </div>
+
+  <!-- Quick Actions (Based on your keywords) -->
+  <div class="quick-actions">
+    <button (click)="openDepositModal()">Deposit</button>
+    <button (click)="openWithdrawModal()">Withdraw</button>
+    <button (click)="transferFunds()">Transfer</button>
+    <button (click)="showATMLocator()">Find ATM(s)</button>
+  </div>
+
+  <!-- Transaction History Feed -->
+  <div class="transaction-feed">
+    <h3>Recent Transactions</h3>
+    <ul>
+      <li *ngFor="let tx of transactions">
+        <span>{{ tx.date | date:'shortDate' }}</span>
+        <span>{{ tx.description }}</span>
+        <span [class.credit]="tx.amount > 0" [class.debit]="tx.amount < 0">
+          {{ tx.amount | currency:'USD' }}
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
