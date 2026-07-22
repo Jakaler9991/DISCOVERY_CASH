@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<EOF
+Usage: dosctl <command> [options]
+
+Commands:
+  deploy   --hosts FILE --src DIR --exe FILE [--remote-dir DIR]
+  run      --hosts FILE --remote-dir DIR --exe FILE
+  stop     --hosts FILE --remote-dir DIR --exe FILE
+  status   --hosts FILE --remote-dir DIR --exe FILE
+
+Examples:
+  dosctl deploy --hosts hosts.txt --src ./dos_app --exe app.exe
+  dosctl run --hosts hosts.txt --remote-dir /opt/dos_app --exe app.exe
+
+EOF
+  exit 1
+}
+
+if [ $# -lt 1 ]; then
+  usage
+fi
+
+COMMAND=$1
+shift
+
+HOSTS=""
+SRC=""
+EXE=""
+REMOTE_DIR="/opt/dos_apps"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --hosts) HOSTS="$2"; shift 2;;
+    --src) SRC="$2"; shift 2;;
+    --exe) EXE="$2"; shift 2;;
+    --remote-dir) REMOTE_DIR="$2"; shift 2;;
+    *) echo "Unknown arg: $1"; usage;;
+  esac
+done
+
+if [ -z "$HOSTS" ]; then
+  echo "--hosts is required"; exit 1
+fi
+
+if [ "$COMMAND" = "deploy" ]; then
+  if [ -z "$SRC" ] || [ -z "$EXE" ]; then
+    echo "deploy requires --src and --exe"; exit 1
+  fi
+
+  while read -r host; do
+    [ -z "$host" ] && continue
+    echo "Deploying to $host..."
+    ssh "$host" "mkdir -p '$REMOTE_DIR'"
+    rsync -avz --delete "$SRC/" "$host":"$REMOTE_DIR/"
+    echo "Deployed to $host"
+  done < "$HOSTS"
+
+  exit 0
+fi
+
+if [ "$COMMAND" = "run" ]; then
+  if [ -z "$EXE" ]; then
+    echo "run requires --exe"; exit 1
+  fi
+  APPNAME=$(basename "$EXE" .exe)
+  while read -r host; do
+    [ -z "$host" ] && continue
+    echo "Starting $EXE on $host..."
+    ssh "$host" bash -lc "mkdir -p '$REMOTE_DIR' && cd '$REMOTE_DIR' && nohup dosbox-x -conf /dev/null -c \"mount c '$REMOTE_DIR'\" -c \"c:$APPNAME\" > /tmp/dosbox-$APPNAME.log 2>&1 & echo \$! > /tmp/dosbox-$APPNAME.pid" || echo "failed to start on $host"
+  done < "$HOSTS"
+  exit 0
+fi
+
+if [ "$COMMAND" = "stop" ]; then
+  APPNAME=$(basename "$EXE" .exe)
+  while read -r host; do
+    [ -z "$host" ] && continue
+    echo "Stopping $EXE on $host..."
+    ssh "$host" bash -lc "if [ -f /tmp/dosbox-$APPNAME.pid ]; then kill \$(cat /tmp/dosbox-$APPNAME.pid) || true; rm -f /tmp/dosbox-$APPNAME.pid; fi"
+  done < "$HOSTS"
+  exit 0
+fi
+
+if [ "$COMMAND" = "status" ]; then
+  APPNAME=$(basename "$EXE" .exe)
+  while read -r host; do
+    [ -z "$host" ] && continue
+    echo "Status for $host:"
+    ssh "$host" bash -lc "if [ -f /tmp/dosbox-$APPNAME.pid ]; then ps -p \$(cat /tmp/dosbox-$APPNAME.pid) -o pid,cmd || echo 'stale pid'; else echo 'not running'; fi"
+  done < "$HOSTS"
+  exit 0
+fi
+
+usage
