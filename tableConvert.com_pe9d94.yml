@@ -1,0 +1,16 @@
+- {'Status': 'Up', 'Monitor': 'inhell.com', 'URL': 'https://inhell.com/', 'Response Time (ms)': '639', 'Uptime 14d (%)': '100.00', 'Interval': '30 minutes', 'Last Check': 'Aug 6, 02:07:49 PM'}
+- {'Status': 'Up', 'Monitor': 'trade.padre.gg', 'URL': 'https://trade.padre.gg/', 'Response Time (ms)': '74', 'Uptime 14d (%)': '100.00', 'Interval': '5 minutes', 'Last Check': 'Aug 6, 02:12:35 PM'}
+- {'Status': 'Up', 'Monitor': 'cockroachlabs.cloud', 'URL': 'https://cockroachlabs.cloud/', 'Response Time (ms)': '164', 'Uptime 14d (%)': '99.89', 'Interval': '5 minutes', 'Last Check': 'Aug 6, 02:11:33 PM'}
+- {'Status': 'Up', 'Monitor': 'cockroachlabs.cloud', 'URL': 'https://cockroachlabs.cloud', 'Response Time (ms)': '176', 'Uptime 14d (%)': '100.00', 'Interval': '5 minutes', 'Last Check': 'Aug 6, 02:12:04 PM'}
+- {'Status': 'Up', 'Monitor': 'gam.onl', 'URL': 'https://gam.onl', 'Response Time (ms)': '63', 'Uptime 14d (%)': '100.00', 'Interval': '5 minutes', 'Last Check': 'Aug 6, 02:12:02 PM'}
+- {'Status': 'Up', 'Monitor': 'www.Americanexpress.com', 'URL': 'https://www.Americanexpress.com', 'Response Time (ms)': '199', 'Uptime 14d (%)': '100.00', 'Interval': '10 minutes', 'Last Check': 'Aug 6, 02:12:04 PM'}
+- {'Status': 'Up', 'Monitor': 'www.genesisbank.com', 'URL': 'https://www.genesisbank.com', 'Response Time (ms)': '264', 'Uptime 14d (%)': '99.95', 'Interval': '10 minutes', 'Last Check': 'Aug 6, 02:11:19 PM'}
+- {'Status': 'Paused', 'Monitor': 'www.mastercard.com.tr', 'URL': 'https://www.mastercard.com.tr', 'Response Time (ms)': '0', 'Uptime 14d (%)': 'null', 'Interval': '10 minutes', 'Last Check': 'Aug 6, 02:11:55 PM'}
+- {'Status': 'Up', 'Monitor': 'www.visa.ro', 'URL': 'https://www.visa.ro', 'Response Time (ms)': '106', 'Uptime 14d (%)': '100.00', 'Interval': '10 minutes', 'Last Check': 'Aug 6, 02:03:52 PM'}
+- {'Status': 'Up', 'Monitor': 'www.visa.com.tw', 'URL': 'https://www.visa.com.tw', 'Response Time (ms)': '311', 'Uptime 14d (%)': '100.00', 'Interval': '10 minutes', 'Last Check': 'Aug 6, 02:11:52 PM'}
+- {'Status': 'Paused', 'Monitor': 'www.en.bancatransilvania.ro', 'URL': 'https://www.en.bancatransilvania.ro', 'Response Time (ms)': '90', 'Uptime 14d (%)': '0.00', 'Interval': '10 minutes', 'Last Check': 'Aug 6, 01:45:27 PM'}
+- {'Status': 'Up', 'Monitor': 'www.hxb.com.cn', 'URL': 'https://www.hxb.com.cn', 'Response Time (ms)': '6409', 'Uptime 14d (%)': '96.52', 'Interval': '30 minutes', 'Last Check': 'Aug 6, 02:08:27 PM'}
+- {'Status': 'Paused', 'Monitor': 'www.moneykit.net', 'URL': 'https://www.moneykit.net', 'Response Time (ms)': '31', 'Uptime 14d (%)': '0.00', 'Interval': '5 minutes', 'Last Check': 'Aug 6, 01:45:01 PM'}
+- {'Status': 'Up', 'Monitor': 'www.PENTHOUSE.com', 'URL': 'https://www.PENTHOUSE.com', 'Response Time (ms)': '618', 'Uptime 14d (%)': '99.95', 'Interval': '10 minutes', 'Last Check': 'Aug 6, 02:08:00 PM'}
+- {'Status': 'Up', 'Monitor': 'www.PLAYGIRL.com', 'URL': 'https://www.PLAYGIRL.com', 'Response Time (ms)': '473', 'Uptime 14d (%)': '100.00', 'Interval': '10 minutes', 'Last Check': 'Aug 6, 02:08:59 PM'}
+- {'Status': 'Up', 'Monitor': 'www.XVIDEOS.com', 'URL': 'https://www.XVIDEOS.com', 'Response Time (ms)': '116', 'Uptime 14d (%)': '99.80', 'Interval': '10 minutes', 'Last Check': 'Aug 6, 02:12:58 PM'}

@@ -1,0 +1,49 @@
+{
+  "instanceId": "YOUR_INSTANCE_ID",
+  "projectName": "GTA97",
+  "updatedAt": "2026-08-05T00:00:00Z",
+  "workflow": {
+    "status": "running",
+    "steps": {
+      "Initialize Configuration": "completed",
+      "DNS Connection": "running",
+      "Upload Sync": "waiting",
+      "Deploy Services": "pending",
+      "Start Server": "pending"
+    }
+  },
+  "config": {
+    "MYKAD": "040319853641",
+    "NAME": "JACKY STICKELS",
+    "LOCATION": "SARAWAK KUCHING NATIVE",
+    "RIGHT_TO_WORK": true,
+    "VIP_NUMBER": "9991830666",
+    "PORT": 41029,
+    "UNICORN_DNS": "unicorn.dns.server",
+    "IBM_CLIENT_LEVEL": "PLATINUM PREMIUM",
+    "SHELL_TYPE": "GOOGLE SHELL CASTOR"
+  },
+  "workHistory": [
+    {
+      "type": "ASIAN_WORK_HISTORY",
+      "status": "NATIVE"
+    },
+    {
+      "type": "ASIAN_LIVED_HISTORY",
+      "status": "NATIVE"
+    }
+  ],
+  "services": {
+    "blockchain": "PIP NFT mining ring",
+    "database": "ODF sync over last 13 days",
+    "httpServer": {
+      "host": "127.0.0.1",
+      "port": 41029,
+      "status": "configured"
+    }
+  },
+  "notes": [
+    "This JSON was generated from Zig-style enterprise configuration code.",
+    "It represents the current state of the deployment workflow and runtime constants."
+  ]
+}
